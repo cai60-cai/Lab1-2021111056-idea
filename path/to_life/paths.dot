@@ -1,0 +1,18 @@
+digraph G {
+    new;
+    new -> worlds;
+    new -> civilizations;
+    worlds;
+    worlds -> to;
+    explore;
+    and;
+    and -> new;
+    to;
+    seek;
+    strange;
+    life;
+    life -> and;
+    out;
+    { edge [color="#d7cb54"]; to -> explore; explore -> strange; strange -> new; new -> life; }
+    { edge [color="#aa6981"]; to -> seek; seek -> out; out -> new; new -> life; }
+}
