@@ -112,7 +112,7 @@ public class Main {
         for (int i = 0; i < words.length; i++) {
             newText.append(words[i]);
             if (i < words.length - 1) {
-                String bridgeWord = getRandomBridgeWord(graph, words[i], words[i + 1]);
+                String bridgeWord = BridgeWordsResult.getRandomBridgeWord(graph, words[i], words[i + 1]);
                 if (bridgeWord != null) {
                     newText.append(" ").append(bridgeWord);
                 }
@@ -123,14 +123,7 @@ public class Main {
         System.out.println(newText.toString());
     }
 
-    private static String getRandomBridgeWord(Graph graph, String word1, String word2) {
-        BridgeWordsResult result = graph.queryBridgeWords(word1, word2);
-        if (result == null || result.hasError() || result.getBridgeWords() == null || result.getBridgeWords().isEmpty()) {
-            return null;  // 检查是否有错误或者桥接词列表是否为空
-        }
-        List<String> bridges = result.getBridgeWords();  // 获取桥接词列表
-        return bridges.get(new Random().nextInt(bridges.size()));  // 随机选择一个桥接词
-    }
+
 
 
     private static void calculateShortestPath(BufferedReader reader, Graph graph) throws IOException {
@@ -234,4 +227,3 @@ public class Main {
     }
 
 }
-//二二
